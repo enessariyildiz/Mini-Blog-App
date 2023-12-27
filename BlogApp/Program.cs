@@ -2,7 +2,6 @@ using BlogApp.Data.Concrete.EfCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
 
 builder.Services.AddDbContext<BlogContext>(options =>
 {
@@ -10,6 +9,10 @@ builder.Services.AddDbContext<BlogContext>(options =>
     var connectionString = config.GetConnectionString("sql_connection");
     options.UseSqlite(connectionString);
 });
+
+var app = builder.Build();
+
+SeedData.FillTestData(app);
 
 app.MapGet("/", () => "Hello World!");
 
