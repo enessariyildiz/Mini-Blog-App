@@ -59,7 +59,7 @@ namespace BlogApp.Data.Concrete.EfCore
                             IsActive = true,
                             PublishedOn = DateTime.Now.AddDays(-20),
                             Tags = context.Tags.Take(2).ToList(),
-                            UserId = 1
+                            UserId = 2
                         },
                         new Post
                         {
@@ -68,7 +68,7 @@ namespace BlogApp.Data.Concrete.EfCore
                         IsActive = true,
                         PublishedOn = DateTime.Now.AddDays(-5),
                         Tags = context.Tags.Take(4).ToList(),
-                        UserId = 2
+                        UserId = 3
                         }
                     );
                     context.SaveChanges(); 
