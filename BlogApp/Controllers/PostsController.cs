@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using BlogApp.Data.Abstract;
 using BlogApp.Data.Concrete.EfCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -12,15 +13,15 @@ namespace BlogApp.Controllers
     //[Route("[controller]")]
     public class PostsController : Controller
     {
-        private readonly BlogContext _context;
+        private IPostRepository _repository;
 
-        public PostsController(BlogContext context)
+        public PostsController(IPostRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
         public IActionResult Index()
         {
-            return View(_context.Posts.ToList());
+            return View(_repository.Posts.ToList());
         }
     }
 }

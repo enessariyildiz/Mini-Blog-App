@@ -1,3 +1,4 @@
+using BlogApp.Data.Abstract;
 using BlogApp.Data.Concrete.EfCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,10 +13,12 @@ builder.Services.AddDbContext<BlogContext>(options =>
     options.UseSqlServer(connectionString);
 });
 
+builder.Services.AddScoped<IPostRepository, EfPostRepository>();
+
 var app = builder.Build();
 
 // Seed data is loaded when the project runs.
-SeedData.FillTestData(app);
+//SeedData.FillTestData(app);
 
 app.MapDefaultControllerRoute();
 
