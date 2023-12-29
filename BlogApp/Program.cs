@@ -17,6 +17,8 @@ builder.Services.AddScoped<IPostRepository, EfPostRepository>();
 
 var app = builder.Build();
 
+app.UseStaticFiles();
+
 // Seed data is loaded when the project runs.
 //SeedData.FillTestData(app);
 
