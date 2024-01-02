@@ -22,11 +22,11 @@ namespace BlogApp.Data.Concrete.EfCore
                 if (!context.Tags.Any())
                 {
                     context.Tags.AddRange(
-                        new Tag { Text = "Web Programming" },
-                        new Tag { Text = "Backend" },
-                        new Tag { Text = "Frontend" },
-                        new Tag { Text = "Full Stack" },
-                        new Tag { Text = "C#" }
+                        new Tag { Text = "Web Programming", Url = "web-programming" },
+                        new Tag { Text = "Backend", Url = "Backend" },
+                        new Tag { Text = "Frontend", Url = "Frontend" },
+                        new Tag { Text = "Full Stack", Url = "Full-Stack" },
+                        new Tag { Text = "C#", Url = "C#" }
                     );
                     context.SaveChanges();
                 }
@@ -47,7 +47,9 @@ namespace BlogApp.Data.Concrete.EfCore
                         {
                             Title = "AspNetCore",
                             Content = "AspNetCore .Net8",
+                            Url="aspnet-core",
                             IsActive = true,
+                            Image="1.jpg",
                             PublishedOn = DateTime.Now.AddDays(-10),
                             Tags = context.Tags.Take(3).ToList(),
                             UserId = 1
@@ -56,22 +58,48 @@ namespace BlogApp.Data.Concrete.EfCore
                         {
                             Title = "Angular",
                             Content = "Angular 7",
+                            Url="angular-7",
                             IsActive = true,
+                            Image="2.jpg",
                             PublishedOn = DateTime.Now.AddDays(-20),
                             Tags = context.Tags.Take(2).ToList(),
                             UserId = 2
                         },
                         new Post
                         {
-                        Title = "Dart",
-                        Content = "Flutter",
-                        IsActive = true,
-                        PublishedOn = DateTime.Now.AddDays(-5),
-                        Tags = context.Tags.Take(4).ToList(),
-                        UserId = 3
+                            Title = "Dart",
+                            Content = "Flutter",
+                            Url="flutter",
+                            IsActive = true,
+                            Image="3.jpg",
+                            PublishedOn = DateTime.Now.AddDays(-30),
+                            Tags = context.Tags.Take(4).ToList(),
+                            UserId = 3
+                        },
+                             new Post
+                        {
+                            Title = "React Courses",
+                            Content = "React",
+                            Url="react-courses",
+                            IsActive = true,
+                            Image="3.jpg",
+                            PublishedOn = DateTime.Now.AddDays(-40),
+                            Tags = context.Tags.Take(4).ToList(),
+                            UserId = 3
+                        },
+                             new Post
+                        {
+                            Title = "Web Design",
+                            Content = "Web Design Courses",
+                            Url="web-design",
+                            IsActive = true,
+                            Image="3.jpg",
+                            PublishedOn = DateTime.Now.AddDays(-50),
+                            Tags = context.Tags.Take(4).ToList(),
+                            UserId = 3
                         }
                     );
-                    context.SaveChanges(); 
+                    context.SaveChanges();
                 }
 
 

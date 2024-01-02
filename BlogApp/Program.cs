@@ -23,6 +23,15 @@ app.UseStaticFiles();
 // Seed data is loaded when the project runs.
 //SeedData.FillTestData(app);
 
-app.MapDefaultControllerRoute();
+app.MapControllerRoute(
+    name: "post_details",
+    pattern: "posts/{url}",
+    defaults: new { controller = "Posts", action = "Details" }
+);
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
 
 app.Run();
