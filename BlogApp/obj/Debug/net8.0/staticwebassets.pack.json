@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\img\\3.jpg"
     },
     {
+      "Id": "D:\\Dev\\Software\\AspNetCore8.0\\BlogApp\\BlogApp\\wwwroot\\img\\p1.jpg",
+      "PackagePath": "staticwebassets\\img\\p1.jpg"
+    },
+    {
+      "Id": "D:\\Dev\\Software\\AspNetCore8.0\\BlogApp\\BlogApp\\wwwroot\\img\\p2.jpg",
+      "PackagePath": "staticwebassets\\img\\p2.jpg"
+    },
+    {
       "Id": "D:\\Dev\\Software\\AspNetCore8.0\\BlogApp\\BlogApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap-grid.css"
     },

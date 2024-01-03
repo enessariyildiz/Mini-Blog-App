@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BlogApp.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
+using SQLitePCL;
 
 namespace BlogApp.Data.Concrete.EfCore
 {
@@ -35,8 +36,8 @@ namespace BlogApp.Data.Concrete.EfCore
                 if (!context.Users.Any())
                 {
                     context.Users.AddRange(
-                        new User { UserName = " TestName" },
-                        new User { UserName = " TestName" }
+                        new User { UserName = "Jack Reacher", Image = "p1.jpg" },
+                        new User { UserName = "Jack Ryan", Image = "p2.jpg" }
                     );
                     context.SaveChanges();
                 }
@@ -53,7 +54,11 @@ namespace BlogApp.Data.Concrete.EfCore
                             Image = "1.jpg",
                             PublishedOn = DateTime.Now.AddDays(-10),
                             Tags = context.Tags.Take(3).ToList(),
-                            UserId = 1
+                            UserId = 1,
+                            Comments = new List<Comment> { 
+                            new Comment { Text = "Best of the world Course", PublishedOn = new DateTime(), UserId = 1 },
+                            new Comment { Text = "Amazing Course", PublishedOn = new DateTime(), UserId = 2 } 
+                            },
                         },
                         new Post
                         {
