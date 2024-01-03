@@ -33,6 +33,24 @@
                             </div>
                         </div>
                     }
+                    <hr class="my-4">
+                    <div>
+                        <h4 class="mb-3">Add comment</h4>
+                        <form action="/posts/AddComment" method="post">
+                            <input type="hidden" name="PostId" value="@Model.PostId">
+                            <div class="mb-3">
+                                <label for="UserName" class="label-form">UserName</label>
+                                <input type="text" name="UserName" id="UserName" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Text" class="label-form">Comment</label>
+                                <textarea type="text" name="Text" id="Text" class="form-control" rows="3"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

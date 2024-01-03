@@ -30,7 +30,7 @@ SeedData.FillTestData(app);
 
 app.MapControllerRoute(
     name: "post_details",
-    pattern: "posts/{url}",
+    pattern: "posts/details/{url}",
     defaults: new { controller = "Posts", action = "Details" }
 );
 

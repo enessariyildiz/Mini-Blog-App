@@ -41,5 +41,10 @@ namespace BlogApp.Controllers
             ThenInclude(x => x.User).
             FirstOrDefaultAsync(p => p.Url == url));
         }
+
+        public IActionResult AddComment(int PostId, string UserName, string Text)
+        {
+            return View();
+        }
     }
-} 
+}
