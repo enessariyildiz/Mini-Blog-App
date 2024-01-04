@@ -56,8 +56,8 @@ namespace BlogApp.Data.Concrete.EfCore
                             Tags = context.Tags.Take(3).ToList(),
                             UserId = 1,
                             Comments = new List<Comment> { 
-                            new Comment { Text = "Best of the world Course", PublishedOn = new DateTime(), UserId = 1 },
-                            new Comment { Text = "Amazing Course", PublishedOn = new DateTime(), UserId = 2 } 
+                            new Comment { Text = "Best of the world Course", PublishedOn = DateTime.Now.AddDays(-20), UserId = 1 },
+                            new Comment { Text = "Amazing Course", PublishedOn = DateTime.Now.AddDays(-30), UserId = 2 } 
                             },
                         },
                         new Post
