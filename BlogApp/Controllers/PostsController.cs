@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Azure.Identity;
 using BlogApp.Data.Abstract;
 using BlogApp.Data.Concrete.EfCore;
 using BlogApp.Entities;
@@ -44,18 +45,29 @@ namespace BlogApp.Controllers
             FirstOrDefaultAsync(p => p.Url == url));
         }
 
-        public IActionResult AddComment(int PostId, string UserName, string Text, string Url)
+
+        [HttpPost]
+        public JsonResult AddComment(int PostId, string UserName, string Text)
         {
             var entity = new Comment
             {
                 Text = Text,
                 PublishedOn = DateTime.Now,
                 PostId = PostId,
-                User = new User{UserName = UserName, Image="avatar.jpg"}
+                User = new User { UserName = UserName, Image = "avatar.jpg" }
             };
+
             _commentRepository.CreateComment(entity);
 
-            return Redirect("/posts/details/" + Url);
+            return Json(new
+            {
+                UserName,
+                Text,
+                entity.PublishedOn,
+                entity.User.Image
+            });
+
+            //return Redirect("/posts/details/" + Url);
         }
     }
 }
