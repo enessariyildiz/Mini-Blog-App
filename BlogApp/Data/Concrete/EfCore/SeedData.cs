@@ -36,10 +36,10 @@ namespace BlogApp.Data.Concrete.EfCore
                 if (!context.Users.Any())
                 {
                     context.Users.AddRange(
-                        new User { UserName = "Jack Reacher", Image = "p1.jpg" },
-                        new User { UserName = "Jack Ryan", Image = "p2.jpg" }
+                        new User { UserName = "JackReacher", Name = "Jack Reacher", Email = "info@jackreacher.com", Password = "1234", Image = "p1.jpg" },
+                        new User { UserName = "JackRyan", Name = "Jack Ryan", Email = "info@jackryan.com", Password = "1234", Image = "p2.jpg" }
                     );
-                    context.SaveChanges();
+                    context.SaveChanges(); 
                 }
 
                 if (!context.Posts.Any())
@@ -55,9 +55,9 @@ namespace BlogApp.Data.Concrete.EfCore
                             PublishedOn = DateTime.Now.AddDays(-10),
                             Tags = context.Tags.Take(3).ToList(),
                             UserId = 1,
-                            Comments = new List<Comment> { 
+                            Comments = new List<Comment> {
                             new Comment { Text = "Best of the world Course", PublishedOn = DateTime.Now.AddDays(-20), UserId = 1 },
-                            new Comment { Text = "Amazing Course", PublishedOn = DateTime.Now.AddDays(-30), UserId = 2 } 
+                            new Comment { Text = "Amazing Course", PublishedOn = DateTime.Now.AddDays(-30), UserId = 2 }
                             },
                         },
                         new Post

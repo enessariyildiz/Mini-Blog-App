@@ -1,0 +1,21 @@
+@model LoginViewModel
+
+<div class="row">
+    <div class="col-12">
+        <h1>Login</h1>
+        <form action="Login" method="post">
+            <div class="mb-3">
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="Password" class="form-label"></label>
+                <input for="Password" class="form-control">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</div>
