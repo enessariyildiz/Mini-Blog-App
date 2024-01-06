@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Azure.Identity;
 using BlogApp.Data.Abstract;
@@ -26,6 +27,8 @@ namespace BlogApp.Controllers
         }
         public async Task<IActionResult> Index(string tag)
         {
+            var claims = User.Claims;
+            
             var posts = _postRepository.Posts;
 
             if (!string.IsNullOrEmpty(tag))
