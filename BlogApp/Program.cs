@@ -1,5 +1,6 @@
 using BlogApp.Data.Abstract;
 using BlogApp.Data.Concrete.EfCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,16 +19,25 @@ builder.Services.AddDbContext<BlogContext>(options =>
 builder.Services.AddScoped<IPostRepository, EfPostRepository>();
 builder.Services.AddScoped<ITagRepository, EfTagRepository>();
 builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
+builder.Services.AddScoped<IUserRepository, EfUserRepository>();
+
+//Authentication
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
 var app = builder.Build();
 
 app.UseStaticFiles();
 
-// Seed data is loaded when the project runs.
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization(); //Yetkilendirme.
+
+
+//Seed data is loaded when the project runs.
 SeedData.FillTestData(app);
 
-// localhost://posts/react-courses
-// localhost://post/tag/web-programming
+//localhost://posts/react-courses
+//localhost://post/tag/web-programming
 
 app.MapControllerRoute(
     name: "post_details",
