@@ -11,11 +11,32 @@
 </head>
 
 <body>
-    <nav class="navbar navbar expand-lg shadow-sm">
+    <nav class="navbar navbar-expand-lg shadow-sm">
         <div class="container">
             <a href="/posts" class="navbar-brand">
                 <i class="bi bi-code-square"></i> Blog App
             </a>
+
+            <ul class="navbar-nav ms-auto">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">@User.Identity.Name</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/users/logout" class="nav-link">Logout</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a href="/users/login" class="nav-link">Login</a>
+                    </li>
+                }
+
+
+            </ul>
+
         </div>
     </nav>
     <div class="container mt-5">
