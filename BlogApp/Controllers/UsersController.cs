@@ -24,6 +24,11 @@ namespace BlogApp.Controllers
             }
             return View();
         }
+
+         public IActionResult Register()
+        {
+            return View();
+        }
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

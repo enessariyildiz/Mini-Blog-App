@@ -54,25 +54,20 @@ namespace BlogApp.Controllers
             var username = User.FindFirstValue(ClaimTypes.Name);
             var avatar = User.FindFirstValue(ClaimTypes.UserData);
 
-            var entity = new Comment
-            {
+            var entity = new Comment {
                 PostId = PostId,
                 Text = Text,
                 PublishedOn = DateTime.Now,
                 UserId = int.Parse(userId ?? "")
             };
-
             _commentRepository.CreateComment(entity);
 
-            return Json(new
-            {
+            return Json(new { 
                 username,
                 Text,
                 entity.PublishedOn,
                 avatar
             });
-
-            //return Redirect("/posts/details/" + Url);
         }
     }
 }
