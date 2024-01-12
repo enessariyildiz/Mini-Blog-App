@@ -27,7 +27,7 @@ namespace BlogApp.Models
         [Required]
         [StringLength(10, ErrorMessage = "Must be max 10 characters", MinimumLength = 3)]
         [DataType(DataType.Password)]
-        [Compare(nameof(Password))]
+        [Compare(nameof(Password),ErrorMessage ="Your password doesn't match.")]
         [Display(Name = "Password Again")]
         public string? ConfirmPassword { get; set; }
 
